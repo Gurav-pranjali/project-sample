@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.WalletAccount;
-import com.example.demo.exceptions.CustomException;
 import com.example.demo.service.CustomerService;
 
 
@@ -22,7 +21,7 @@ public class EmpRestController {
 CustomerService cusService;
 
 @PutMapping("/addAmount/{cusId}/{balance}")
-public Double addAmount(@PathVariable Integer cusId, @PathVariable Double balance) throws CustomException {
+public Double addAmount(@PathVariable Integer cusId, @PathVariable Double balance) {
 	
 	System.out.println(cusId);
 	 Double c=cusService.addAmount(cusId, balance);	 
@@ -30,8 +29,7 @@ public Double addAmount(@PathVariable Integer cusId, @PathVariable Double balanc
 	 cusService.updateData(cusId);
 	 
 	 System.out.println("Amount added successfully to UserId: "+ cusId+"  present balance: "+c);
-	 
-	 return c; 
+	  return c; 
 }
 
 

@@ -20,7 +20,7 @@ public class EmpRestController {
 @Autowired
 CustomerService cusService;
 @PostMapping("/createAccount")
-public String CreateAccount(@RequestBody WalletAccount acc) {
+public WalletAccount CreateAccount(@RequestBody WalletAccount acc) {
 	acc.setAccount_Balance(0.0);
 	acc.setStatus("NO BALANCE");	
 	
@@ -32,7 +32,7 @@ public String CreateAccount(@RequestBody WalletAccount acc) {
      //c.setAccount_Balance(0.0);
    // c.setStatus(EnumClass.NOBALANCE);                                         //to enter data in database
     
-     return "Customer Account Created Successfully";
-	//return c;
+     System.out.println("Customer Account Created Successfully");
+	return c;
 	}
 }
